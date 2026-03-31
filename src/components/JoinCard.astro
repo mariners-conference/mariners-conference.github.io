@@ -1,0 +1,23 @@
+---
+interface Props {
+  href: string;
+  title: string;
+  subtitle: string;
+}
+const { href, title, subtitle } = Astro.props;
+---
+
+<a
+  href={href}
+  target="_blank"
+  rel="noopener noreferrer"
+  class="join-card"
+  data-stagger-child
+>
+  <slot />
+  <div>
+    <h3>{title}</h3>
+    <p>{subtitle}</p>
+  </div>
+  <span class="material-symbols-rounded join-arrow">arrow_forward</span>
+</a>

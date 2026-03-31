@@ -1,0 +1,21 @@
+---
+interface Props {
+  links: { href: string; label: string }[];
+}
+const { links } = Astro.props;
+---
+
+<header class="header" id="site-header">
+  <div class="header-logo">
+    <a href="/">
+      <span class="brand-primary">Mariners'</span>
+      <span class="brand-secondary">Conference</span>
+    </a>
+  </div>
+  <nav class="header-nav" id="header-nav">
+    {links.map((l) => <a href={l.href}>{l.label}</a>)}
+  </nav>
+  <button class="menu-btn" id="mobile-menu-btn" aria-label="メニュー">
+    <span></span><span></span>
+  </button>
+</header>

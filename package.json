@@ -1,0 +1,27 @@
+{
+  "name": "mariners-conference-website",
+  "type": "module",
+  "version": "1.0.0",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "format": "prettier --write ./src",
+    "format:check": "prettier --check ./src"
+  },
+  "dependencies": {
+    "@iconify-json/simple-icons": "^1.2.76",
+    "animejs": "^3.2.2",
+    "astro": "^6.1.2",
+    "astro-icon": "^1.1.5",
+    "gsap": "^3.14.2"
+  },
+  "devDependencies": {
+    "prettier": "^3.8.1",
+    "prettier-plugin-astro": "^0.14.1"
+  }
+}

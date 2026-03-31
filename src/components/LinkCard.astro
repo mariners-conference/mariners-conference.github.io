@@ -1,0 +1,26 @@
+---
+interface Props {
+  href: string;
+  title: string;
+  subtitle: string;
+  iconClass: string;
+}
+const { href, title, subtitle, iconClass } = Astro.props;
+---
+
+<a
+  href={href}
+  target="_blank"
+  rel="noopener noreferrer"
+  class="link-card"
+  data-stagger-child
+>
+  <div class={`link-icon ${iconClass}`}>
+    <slot />
+  </div>
+  <div class="link-text">
+    <span class="link-title">{title}</span>
+    <span class="link-sub">{subtitle}</span>
+  </div>
+  <span class="material-symbols-rounded link-arrow">arrow_outward</span>
+</a>

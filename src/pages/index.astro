@@ -1,0 +1,417 @@
+---
+import Layout from "../layouts/Layout.astro";
+import LoadingScreen from "../components/LoadingScreen.astro";
+import Header from "../components/Header.astro";
+import Hero from "../components/Hero.astro";
+import SectionHeader from "../components/SectionHeader.astro";
+import { Icon } from "astro-icon/components";
+import ActivityCard from "../components/ActivityCard.astro";
+import InfoCard from "../components/InfoCard.astro";
+import LinkCard from "../components/LinkCard.astro";
+import JoinCard from "../components/JoinCard.astro";
+import Footer from "../components/Footer.astro";
+
+const navLinks = [
+  { href: "#about", label: "About" },
+  { href: "#lt", label: "LT" },
+  { href: "#activities", label: "Activities" },
+  { href: "#join", label: "Join" },
+  { href: "#links", label: "Links" },
+];
+
+const activities = [
+  {
+    icon: "local_florist",
+    title: "Spring LT（春LT）",
+    description: "4〜5月頃、未来大新入生の歓迎を兼ねたLT会を開催します。",
+  },
+  {
+    icon: "celebration",
+    title: "未来祭LT",
+    description: "10月頃、未来祭で行われる最大規模のLT会です。",
+  },
+  {
+    icon: "menu_book",
+    title: "勉強会",
+    description: "幅広い技術分野にわたる勉強会をメンバー主導で開催します。",
+  },
+  {
+    icon: "rocket_launch",
+    title: "外部イベント参加",
+    description: "LTイベントなど、外部の技術イベントに参加します。",
+  },
+  {
+    icon: "handshake",
+    title: "イベント支援",
+    description: "学内外のサークルとの協賛や合同イベントの開催を行います。",
+  },
+  {
+    icon: "auto_awesome",
+    title: "その他",
+    description: "技術書典への参加や部誌の制作など、様々な活動を展開します。",
+  },
+];
+
+const ltItems = [
+  {
+    icon: "timer",
+    title: "3〜10分で話す短編プレゼン",
+    description:
+      "LTは短時間でテンポよく話す発表形式です。1つのテーマに絞って共有できます。",
+  },
+  {
+    icon: "group",
+    title: "初心者歓迎",
+    description:
+      "初登壇や勉強途中、趣味の内容でも大丈夫です。聞くだけ参加も歓迎しています。",
+  },
+  {
+    icon: "forum",
+    title: "交流のきっかけになる",
+    description:
+      "発表後に質問や雑談が生まれ、同じ興味を持つ人同士でつながりやすくなります。",
+  },
+];
+---
+
+<Layout>
+  <LoadingScreen />
+  <Header links={navLinks} />
+  <Hero />
+
+  <!-- About -->
+  <section class="section" id="about">
+    <div class="container">
+      <SectionHeader label="About" title="サークルについて" />
+      <div class="about-grid">
+        <div class="about-text" data-reveal>
+          <p class="about-lead">
+            Mariners'
+            Conference（マリカン）は、LTイベントを主軸として、技術分野における幅広いイベントの開催・参加・支援を行うことを目的としたサークルです。
+          </p>
+          <p>LTに興味のある方の参加を歓迎しています。</p>
+        </div>
+        <div class="about-note" data-reveal>
+          <div class="lt-badge">
+            <span class="material-symbols-rounded">verified</span>
+          </div>
+          <h3>公認サークルとして活動</h3>
+          <p>
+            Mariners' Conference は「公立はこだて未来大学公認サークル」です。
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LT -->
+  <section class="section section-alt" id="lt">
+    <div class="container">
+      <SectionHeader
+        label="LT"
+        title="LTとは？"
+        description="ライトニングトーク（Lightning Talk）の基本を簡単に紹介します。"
+      />
+      <div class="lt-grid" data-reveal data-stagger>
+        {
+          ltItems.map((item) => (
+            <div class="lt-card" data-stagger-child>
+              <span class="material-symbols-rounded lt-icon">{item.icon}</span>
+              <h3>{item.title}</h3>
+              <p>{item.description}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Activities -->
+  <section class="section" id="activities">
+    <div class="container">
+      <SectionHeader label="Activities" title="活動内容" />
+      <div class="card-grid" data-reveal data-stagger>
+        {
+          activities.map((a) => (
+            <ActivityCard
+              icon={a.icon}
+              title={a.title}
+              description={a.description}
+            />
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Info -->
+  <section class="section" id="info">
+    <div class="container">
+      <SectionHeader label="Info" title="活動情報" />
+      <div class="info-row" data-reveal data-stagger>
+        <InfoCard
+          icon="location_on"
+          title="活動場所"
+          description="公立はこだて未来大学<br/>サークル室11"
+        />
+        <InfoCard
+          icon="event"
+          title="活動日時"
+          description="不定期開催<br/>X・connpass・Discord で告知"
+        />
+        <InfoCard
+          icon="group_add"
+          title="入部方法"
+          description="Discord Server で<br />入部する旨を @運営 にお伝えください"
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- Join -->
+  <section class="section section-alt" id="join">
+    <div class="container">
+      <SectionHeader
+        label="Join Us"
+        title="参加する"
+        description="サークル公式の Discord Server がございます。お気軽にご参加ください。"
+      />
+      <div class="join-row" data-reveal data-stagger>
+        <JoinCard
+          href="https://discord.gg/DeFqVB6yCy"
+          title="Discord Server に参加する"
+          subtitle="招待リンクで参加"
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- Links -->
+  <section class="section" id="links">
+    <div class="container">
+      <SectionHeader label="Links" title="公式リンク" />
+      <div class="links-row" data-reveal data-stagger>
+        <LinkCard
+          href="https://x.com/mariconf_fun"
+          title="X"
+          subtitle="@mariconf_fun"
+          iconClass="ic-x"
+        >
+          <Icon name="simple-icons:x" />
+        </LinkCard>
+        <LinkCard
+          href="https://mariconf.connpass.com/"
+          title="connpass"
+          subtitle="イベント情報"
+          iconClass="ic-connpass"
+        >
+          <span class="material-symbols-rounded">event</span>
+        </LinkCard>
+        <LinkCard
+          href="https://github.com/mariners-conference"
+          title="GitHub"
+          subtitle="@mariners-conference"
+          iconClass="ic-github"
+        >
+          <Icon name="simple-icons:github" />
+        </LinkCard>
+        <LinkCard
+          href="https://devhub.c.fun.ac.jp/mariconf"
+          title="DevHub"
+          subtitle="未来大技術コミュニティ"
+          iconClass="ic-devhub"
+        >
+          <span class="material-symbols-rounded">code</span>
+        </LinkCard>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+
+  <script>
+    // @ts-ignore
+    import anime from "animejs/lib/anime.es.js";
+
+    document.addEventListener("DOMContentLoaded", () => {
+      /* ── Loading ── */
+      const tl = anime.timeline({ easing: "easeOutExpo" });
+      tl.add({
+        targets: "#loading-wireframe path",
+        strokeDashoffset: [anime.setDashoffset, 0],
+        easing: "easeInOutQuart",
+        duration: 1400,
+        delay: 100,
+      })
+        .add({ targets: "#loading-bar", scaleX: [0, 1], duration: 600 }, 800)
+        .add({
+          targets: "#loading-screen",
+          translateY: [0, "-100%"],
+          easing: "easeInExpo",
+          duration: 700,
+          delay: 300,
+          begin: () => heroAnim(),
+          complete: () => {
+            const el = document.getElementById("loading-screen");
+            if (el) el.style.display = "none";
+            document.body.classList.remove("loading");
+          },
+        });
+
+      /* ── Hero ── */
+      function heroAnim() {
+        anime
+          .timeline({ easing: "easeOutExpo" })
+          .add({
+            targets: ".hero-logo-wrap",
+            opacity: [0, 1],
+            scale: [0.92, 1],
+            translateY: [18, 0],
+            duration: 850,
+          })
+          .add(
+            {
+              targets: ".hero-eyebrow",
+              opacity: [0, 1],
+              translateY: [15, 0],
+              duration: 700,
+            },
+            "-=450",
+          )
+          .add(
+            {
+              targets: ".hero-word",
+              opacity: [0, 1],
+              translateY: [50, 0],
+              rotateX: [40, 0],
+              duration: 900,
+              delay: anime.stagger(120),
+            },
+            "-=500",
+          )
+          .add(
+            {
+              targets: ".hero-desc",
+              opacity: [0, 1],
+              translateY: [20, 0],
+              duration: 700,
+            },
+            "-=600",
+          )
+          .add(
+            {
+              targets: ".hero-actions",
+              opacity: [0, 1],
+              translateY: [15, 0],
+              duration: 600,
+            },
+            "-=400",
+          )
+          .add(
+            {
+              targets: ".hero-scroll",
+              opacity: [0, 0.6],
+              duration: 800,
+            },
+            "-=300",
+          );
+      }
+
+      /* ── Text Animation Helper ── */
+      const animateText = (target: HTMLElement) => {
+        const textTargets = target.querySelectorAll(
+          "h1, h2, h3, p, .section-label, .hero-word",
+        );
+        if (textTargets.length === 0) return;
+        anime({
+          targets: textTargets,
+          opacity: [0, 1],
+          translateY: [18, 0],
+          duration: 680,
+          delay: anime.stagger(50),
+          easing: "easeOutExpo",
+        });
+      };
+
+      /* ── Scroll Reveal ── */
+      const obs = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (!e.isIntersecting) return;
+            const el = e.target as HTMLElement;
+            if (el.dataset.stagger !== undefined) {
+              // 親グリッド自体もopacity:1にする
+              el.style.opacity = "1";
+              anime({
+                targets: el.querySelectorAll("[data-stagger-child]"),
+                opacity: [0, 1],
+                translateY: [35, 0],
+                scale: [0.97, 1],
+                duration: 650,
+                delay: anime.stagger(70),
+                easing: "easeOutExpo",
+              });
+            } else {
+              anime({
+                targets: el,
+                opacity: [0, 1],
+                translateY: [30, 0],
+                duration: 800,
+                easing: "easeOutExpo",
+              });
+            }
+            animateText(el);
+            obs.unobserve(el);
+          });
+        },
+        { threshold: 0.08, rootMargin: "0px 0px -30px 0px" },
+      );
+      document.querySelectorAll("[data-reveal]").forEach((el) => {
+        // JS有効時のみアニメーション用にopacity:0を設定
+        (el as HTMLElement).style.opacity = "0";
+        obs.observe(el);
+      });
+
+      /* ── Header ── */
+      const header = document.getElementById("site-header");
+      window.addEventListener("scroll", () =>
+        header?.classList.toggle("scrolled", window.scrollY > 60),
+      );
+
+      /* ── Mobile Menu ── */
+      const btn = document.getElementById("mobile-menu-btn");
+      const nav = document.getElementById("header-nav");
+      btn?.addEventListener("click", () => {
+        btn.classList.toggle("open");
+        nav?.classList.toggle("open");
+      });
+      nav?.querySelectorAll("a").forEach((a) =>
+        a.addEventListener("click", () => {
+          btn?.classList.remove("open");
+          nav?.classList.remove("open");
+        }),
+      );
+
+      /* ── Active Nav ── */
+      const navLinks = document.querySelectorAll('.header-nav a[href^="#"]');
+      const secObs = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) {
+              navLinks.forEach((l) =>
+                l.classList.toggle(
+                  "active",
+                  l.getAttribute("href") === `#${e.target.id}`,
+                ),
+              );
+            }
+          });
+        },
+        { threshold: 0.25 },
+      );
+      document
+        .querySelectorAll("section[id]")
+        .forEach((s) => secObs.observe(s));
+    });
+  </script>
+</Layout>

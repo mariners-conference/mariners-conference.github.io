@@ -1,0 +1,37 @@
+---
+import Logo from "./Logo.astro";
+---
+
+<section class="hero" id="hero">
+  <div class="hero-inner">
+    <div class="hero-logo-wrap" data-hero>
+      {/* <img src="/logo.svg" alt="Mariners' Conference" class="hero-logo-large" /> */}
+      <Logo />
+    </div>
+    <p class="hero-eyebrow" data-hero>公立はこだて未来大学 公認サークル</p>
+    <h1 class="hero-title" data-hero>
+      <span class="hero-word">Mariners'</span>
+      <span class="hero-word">Conference</span>
+    </h1>
+    <p class="hero-desc" data-hero>
+      LTイベントを主軸として、技術分野における幅広いイベントの開催・参加・支援を行うことを目的としたサークルです。
+    </p>
+    <div class="hero-actions" data-hero>
+      <a href="#join" class="btn btn-primary">
+        <span class="material-symbols-rounded">arrow_forward</span>
+        参加する
+      </a>
+      <a
+        href="https://mariconf.connpass.com/"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn btn-ghost"
+      >
+        イベントを見る
+      </a>
+    </div>
+  </div>
+  <div class="hero-scroll" data-hero>
+    <div class="scroll-line"></div>
+  </div>
+</section>

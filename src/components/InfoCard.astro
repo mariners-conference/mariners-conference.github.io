@@ -1,0 +1,14 @@
+---
+interface Props {
+  icon: string;
+  title: string;
+  description: string;
+}
+const { icon, title, description } = Astro.props;
+---
+
+<div class="info-card" data-stagger-child>
+  <span class="material-symbols-rounded info-icon">{icon}</span>
+  <h3>{title}</h3>
+  <p set:html={description} />
+</div>
