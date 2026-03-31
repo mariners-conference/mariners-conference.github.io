@@ -221,7 +221,7 @@ h3 {
 }
 .hero-logo-wrap {
   width: clamp(180px, 34vw, 340px);
-  margin: 0 auto 1.4rem;
+  margin: 0 auto;
 }
 .hero-logo-large {
   width: 100%;
