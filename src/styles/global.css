@@ -271,12 +271,12 @@ h3 {
   justify-content: center;
   margin-top: 2.5rem;
 }
-.hero-scroll {
+/* .hero-scroll {
   position: absolute;
   bottom: 2rem;
   left: 50%;
   transform: translateX(-50%);
-}
+} */
 .scroll-line {
   width: 1px;
   height: 48px;
